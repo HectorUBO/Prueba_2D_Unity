@@ -2,33 +2,35 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-
     public float velocidad = 5f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private CambioColor cambioColor;
+
     void Start()
     {
-
+        cambioColor = GetComponent<CambioColor>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(Vector3.up * velocidad * Time.deltaTime);
+            if (cambioColor != null) cambioColor.CambiarColor(Color.green);
         }
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(Vector3.down * velocidad * Time.deltaTime);
+            if (cambioColor != null) cambioColor.CambiarColor(Color.yellow);
         }
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector3.left * velocidad * Time.deltaTime);
+            if (cambioColor != null) cambioColor.CambiarColor(Color.red);
         }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector3.right * velocidad * Time.deltaTime);
+            if (cambioColor != null) cambioColor.CambiarColor(Color.blue);
         }
-    
     }
 }
