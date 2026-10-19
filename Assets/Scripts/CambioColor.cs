@@ -9,11 +9,11 @@ public class CambioColor : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void CambiarColor(Color nuevoColor)
+    void Update()
     {
-        if (spriteRenderer != null)
+        if (Input.GetKey(KeyCode.Space))
         {
-            spriteRenderer.color = nuevoColor;
+            spriteRenderer.color = Color.red;
         }
     }
 }

@@ -3,11 +3,11 @@ using UnityEngine;
 public class Movimiento : MonoBehaviour
 {
     public float velocidad = 5f;
-    private CambioColor cambioColor;
+    private  SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        cambioColor = GetComponent<CambioColor>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -15,22 +15,22 @@ public class Movimiento : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(Vector3.up * velocidad * Time.deltaTime);
-            if (cambioColor != null) cambioColor.CambiarColor(Color.green);
+            spriteRenderer.color = Color.green;
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(Vector3.down * velocidad * Time.deltaTime);
-            if (cambioColor != null) cambioColor.CambiarColor(Color.yellow);
+            spriteRenderer.color = Color.yellow;
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector3.left * velocidad * Time.deltaTime);
-            if (cambioColor != null) cambioColor.CambiarColor(Color.red);
+            spriteRenderer.color = Color.red;
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector3.right * velocidad * Time.deltaTime);
-            if (cambioColor != null) cambioColor.CambiarColor(Color.blue);
+            spriteRenderer.color = Color.blue;
         }
     }
 }
